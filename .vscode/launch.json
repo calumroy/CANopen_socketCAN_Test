@@ -1,0 +1,21 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Axiomatic Device",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/axiomatic_dev.py",
+            "args": [
+                "-c",
+                "config/test_axiomatic.yaml"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "python": "${command:python.interpreterPath}"
+        }
+    ]
+}

@@ -37,48 +37,33 @@ BU_:
 
 
 BO_ 511 Com001_TPDO1: 8 Vector__XXX
- SG_ thermistor_1_resist_inv1_coolant : 0|16@1- (0.1,0) [40|240000] "ohm" Vector__XXX
- SG_ thermistor_2_resist_inv2_coolant : 16|16@1- (0.1,0) [40|240000] "ohm" Vector__XXX
- SG_ thermistor_3_resist_mot1_coolant : 32|16@1- (0.1,0) [40|240000] "ohm" Vector__XXX
- SG_ thermistor_4_resist_mot2_coolant : 48|16@1- (0.1,0) [40|240000] "ohm" Vector__XXX
+ SG_ input1_value : 0|16@1- (0.001,0) [0|65535] "" Vector__XXX
+ SG_ input2_value : 16|16@1- (0.001,0) [0|65535] "" Vector__XXX
+ SG_ input3_value : 32|16@1- (0.001,0) [0|65535] "" Vector__XXX
+ SG_ input4_value : 48|16@1- (0.001,0) [0|65535] "" Vector__XXX
 
 BO_ 767 Com001_TPDO2: 8 Vector__XXX
- SG_ pressure_sensor_voltage_V : 0|16@1- (0.001,0) [0|0] "" Vector__XXX
- SG_ pressure_sensor_2_voltage_V : 16|16@1- (0.001,0) [0|0] "" Vector__XXX
- SG_ pressure_sensor_3_voltage_V : 32|16@1- (0.001,0) [0|0] "" Vector__XXX
- SG_ pressure_sensor_4_voltage_V : 48|16@1- (0.001,0) [0|0] "" Vector__XXX
-
-BO_ 639 Com001_RPDO1: 2 Vector__XXX
- SG_ k01_pos_contactor_enable : 0|1@1+ (1,0) [0|0] "" Vector__XXX
- SG_ k02_neg_contactor_enable : 1|1@1+ (1,0) [0|0] "" Vector__XXX
- SG_ k03_prechg_contactor_enable : 2|1@1+ (1,0) [0|0] "" Vector__XXX
- SG_ inverter_1_12v_relay_enable : 6|1@1+ (1,0) [0|0] "" Vector__XXX
- SG_ inverter_2_12v_relay_enable : 7|1@1+ (1,0) [0|0] "" Vector__XXX
- SG_ DO_4_enable : 3|1@1+ (1,0) [0|0] "" Vector__XXX
- SG_ DO_5_enable : 4|1@1+ (1,0) [0|0] "" Vector__XXX
- SG_ DO_6_enable : 5|1@1+ (1,0) [0|0] "" Vector__XXX
-
-BO_ 1023 Com001_TPDO3: 6 Vector__XXX
- SG_ digital_input_1 : 0|1@1+ (1,0) [0|0] "" Vector__XXX
- SG_ digital_input_2 : 1|1@1+ (1,0) [0|0] "" Vector__XXX
- SG_ digital_input_3 : 2|1@1+ (1,0) [0|0] "" Vector__XXX
- SG_ digital_input_4 : 3|1@1+ (1,0) [0|0] "" Vector__XXX
- SG_ digital_input_5 : 4|1@1+ (1,0) [0|0] "" Vector__XXX
- SG_ digital_input_6 : 5|1@1+ (1,0) [0|0] "" Vector__XXX
- SG_ e_stop_button : 6|1@1+ (1,0) [0|0] "" Vector__XXX
- SG_ k01_pos_contactor_closed : 7|1@1+ (1,0) [0|0] "" Vector__XXX
- SG_ k01_pos_contactor_open : 8|1@1+ (1,0) [0|0] "" Vector__XXX
- SG_ k02_neg_contactor_closed : 9|1@1+ (1,0) [0|0] "" Vector__XXX
- SG_ k02_neg_contactor_open : 10|1@1+ (1,0) [0|0] "" Vector__XXX
- SG_ system_enable_button : 11|1@1+ (1,0) [0|0] "" Vector__XXX
- SG_ flow_sensor_freq_Hz : 16|16@1+ (1,0) [0|0] "" Vector__XXX
- SG_ thermistor_5_resist_coolant_in : 32|16@1- (0.1,0) [40|240000] "ohm" Vector__XXX
+ SG_ input5_value : 0|16@1- (0.001,0) [0|65535] "" Vector__XXX
+ SG_ input6_value : 16|16@1- (0.001,0) [0|65535] "" Vector__XXX
+ SG_ input7_value : 32|16@1- (0.001,0) [0|65535] "" Vector__XXX
+ SG_ input8_value : 48|16@1- (0.001,0) [0|65535] "" Vector__XXX
 
 
+BO_ 1023 Com001_TPDO3: 8 Vector__XXX
+ SG_ input9_value : 0|16@1- (0.001,0) [0|65535] "" Vector__XXX
+ SG_ input10_value : 16|16@1- (0.001,0) [0|65535] "" Vector__XXX
+ SG_ input11_freq : 32|16@1+ (0.1,0) [0|65535] "Hz" Vector__XXX
+ SG_ input12_value : 48|16@1- (0.001,0) [0|65535] "" Vector__XXX
 
-CM_ SG_ 511 thermistor_1_resist_inv1_coolant "thermistor measured resistance";
-CM_ SG_ 511 thermistor_2_resist_inv2_coolant "thermistor measured resistance";
-CM_ SG_ 511 thermistor_3_resist_mot1_coolant "thermistor measured resistance";
-CM_ SG_ 511 thermistor_4_resist_mot2_coolant "thermistor measured resistance";
-CM_ SG_ 1023 thermistor_5_resist_coolant_in "thermistor measured resistance";
-
+CM_ SG_ 511 input1_value "Generic input 1 value";
+CM_ SG_ 511 input2_value "Generic input 2 value";
+CM_ SG_ 511 input3_value "Generic input 3 value";
+CM_ SG_ 511 input4_value "Generic input 4 value";
+CM_ SG_ 767 input5_value "Generic input 5 value";
+CM_ SG_ 767 input6_value "Generic input 6 value";
+CM_ SG_ 767 input7_value "Generic input 7 value";
+CM_ SG_ 767 input8_value "Generic input 8 value";
+CM_ SG_ 1023 input9_value "Generic input 9 value";
+CM_ SG_ 1023 input10_value "Generic input 10 value";
+CM_ SG_ 1023 input11_freq "Generic input 11 (frequency input)";
+CM_ SG_ 1023 input12_value "Generic input 12 value";

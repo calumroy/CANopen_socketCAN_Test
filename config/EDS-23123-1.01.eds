@@ -5960,6 +5960,8 @@ PDOMapping=0
 [2311]
 ParameterName=Output Error Clear Hysteresis
 ObjectType=0x8
+DataType=0x0005
+AccessType=rw
 PDOMapping=0
 CompactSubObj=12
 

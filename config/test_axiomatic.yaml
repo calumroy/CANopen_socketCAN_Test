@@ -2,7 +2,7 @@
   axio_dev: [  # The axiomatic device controller(s). An axiomatic is a CAN device that controls a set of analog/digital input output pins for reading sensor values and driving outputs. 
     {
       name: "Axiomatic_1",                         # The name of the device.
-      eds_file: "./config/EDS-23123-1.eds",    # The path and name of the EDS file to use for this canopen evice. 
+      eds_file: "./config/EDS-23123-1.01.eds",    # The path and name of the EDS file to use for this canopen evice. 
       dbc_file_name: "./config/axiomatic_23123-1.dbc",  # The dbc file should match the configuration of the RPDOs and TPDOs definied in the .EDS file otherwise the read data will have the wrong names and/or values.
       can_interface: "can0",                  # CAN Interface Number.
       can_interface_type: "socketcan",        # CAN Interface type to use.
@@ -10,18 +10,12 @@
       can_max_read_timeout_ms: 100,           # The max time between checks on the CAN bus for new can messages.
       can_max_errors: 10,                     # The max number of read/wrtie errors before the CAN device is considered to be down. 
       write_period_ms: 100,                   # The period in milliseconds between writes to the device.
-      contactor_status_timeout_ms: 1000,      # The max time in milliseconds to wait for the contactor status to change after a contactor command is sent. If a timeout occurs the contactor command is reset to fals 
-      system_enable_inverse_logic: False,          # Set to True to use inverse logic in the system enable input.
+
       display:
         {
           show_controls: ["clearFaults"],
         },
-      default_control_inputs:
-        {
-          precharge_contactor_enable: False,
-          main_contactor_enable: False,
-          negative_contactor_enable: False,
-        },
+      default_control_inputs: {},
       device_id: 0x7F,                       # The CAN device ID. Also known as the canopen NODE_ID of the device.
       object_dict_config: [                  # Desired device values for the canopen object dictionary entries (this is only some of the canopen dict entries for the device, the ones we care about). The actual device is checked for the corresponding values to confirm the device is configured correctly and if not sets these values on the device.
         {
@@ -30,35 +24,35 @@
           [
             {
               subname: "Operating Mode Universal Input 1",
-              value: 1,    # 1 = Analog Input Mode, Resistive Input Thermistor 1
+              value: 1,    # 1 = Analog Input Mode,
             },
             {
               subname: "Operating Mode Universal Input 2",
-              value: 1,    # 1 = Analog Input Mode, Resistive Input Thermistor 2
+              value: 1,    # 1 = Analog Input Mode, 
             },
             {
               subname: "Operating Mode Universal Input 3",
-              value: 1,    # 1 = Analog Input Mode, Resistive Input Thermistor 3
+              value: 1,    # 1 = Analog Input Mode, 
             },
             {
               subname: "Operating Mode Universal Input 4",
-              value: 1,    # 1 = Analog Input Mode, Resistive Input Thermistor 4
+              value: 1,    # 1 = Analog Input Mode, 
             },
             {
               subname: "Operating Mode Universal Input 5",
-              value: 1,    # 1 = Analog Input Mode, Resistive Input Thermistor 5
+              value: 1,    # 1 = Analog Input Mode,
             },
             {
               subname: "Operating Mode Universal Input 6", # 1 = Analog Input Mode, Pressure Sensor 1, voltage input
               value: 1,    
             },
             {
-              subname: "Operating Mode Universal Input 7", # E-Stop button (Digital Input) If this signal is low it indicates the Emergency Stop button has been pressed.
-              value: 10,      # 10 = Digital Input Mode
+              subname: "Operating Mode Universal Input 7", 
+              value: 1,     
             },
             {
-              subname: "Operating Mode Universal Input 8", # 1 = Analog Input Mode, Pressure Sensor 2, voltage input
-              value: 1,     # 1 = Analog Input Mode
+              subname: "Operating Mode Universal Input 8", 
+              value: 1,    
             },
             {
               subname: "Operating Mode Universal Input 9", # 1 = Analog Input Mode, Pressure Sensor 3, voltage input
@@ -69,67 +63,13 @@
               value: 1,
             },
             {
-              subname: "Operating Mode Universal Input 11", # YF-S201 Flow sensor (Frequency Input)
+              subname: "Operating Mode Universal Input 11", # (Frequency Input)
               value: 1,     # 1 = Analog Input Mode
             },
             {
               subname: "Operating Mode Universal Input 12", # User selector switch has been set to OFF (Soft stop button)
-              value: 10,    # 10 = Digital Input Mode
+              value: 1,
             },
-          ]
-        },
-        {
-          name: "Output Control Source",  # 0x2340 Output Control Source (Select CANOpen rpdo to control the output)
-          subindicies: 
-          [
-            {
-              subname: "Proportional Output 1 Control Source",
-              value: 1, # 1 = Canopen RPDO control
-            },
-            {
-              subname: "Proportional Output 2 Control Source",
-              value: 1, # 1 = Canopen RPDO control
-            },
-            {
-              subname: "Proportional Output 3 Control Source",
-              value: 1, # 1 = Canopen RPDO control
-            },
-            {
-              subname: "Proportional Output 4 Control Source",
-              value: 1, # 1 = Canopen RPDO control
-            },
-            {
-              subname: "Proportional Output 5 Control Source",
-              value: 1, # 1 = Canopen RPDO control
-            },
-            {
-              subname: "Proportional Output 6 Control Source",
-              value: 1, # 1 = Canopen RPDO control
-            },
-            {
-              subname: "Proportional Output 7 Control Source",
-              value: 1, # 1 = Canopen RPDO control
-            },
-            {
-              subname: "Proportional Output 8 Control Source",
-              value: 1, # 1 = Canopen RPDO control
-            },
-            {
-              subname: "Proportional Output 9 Control Source",
-              value: 1, # 1 = Canopen RPDO control
-            },
-            {
-              subname: "Proportional Output 10 Control Source",
-              value: 1, # 1 = Canopen RPDO control
-            },
-            {
-              subname: "Proportional Output 11 Control Source",
-              value: 1, # 1 = Canopen RPDO control
-            },
-            {
-              subname: "Proportional Output 12 Control Source",
-              value: 1, # 1 = Canopen RPDO control
-            }
           ]
         },
        {
@@ -140,11 +80,11 @@
           subindicies: 
           [
             {
-              subname: 7,  
+              subname: 1,  
               value: 2,
             },
             {
-              subname: 12,  
+              subname: 1,  
               value: 2,
             }
           ]
@@ -155,219 +95,53 @@
           [
             {
               subname: 1,
-              value: 100,    # Sensor type is 100 for resistive input, Thermistor 1
+              value: 40,    # Sensor type is 40 for voltage input
             },
             {
               subname: 2,
-              value: 100,    # Sensor type is 100 for resistive input, Thermistor 2
+              value: 40,    # Sensor type is 40 for voltage input
             },
             {
               subname: 3,
-              value: 100,    # Sensor type is 100 for resistive input, Thermistor 3
+              value: 40,    # Sensor type is 40 for voltage input
             },
             {
               subname: 4,
-              value: 100,    # Sensor type is 100 for resistive input, Thermistor 4
+              value: 40,    # Sensor type is 40 for voltage input
             },
             {
               subname: 5,
-              value: 100,    # Sensor type is 100 for resistive input, Thermistor 5
+              value: 40,    # Sensor type is 40 for voltage input
             },
             {
               subname: 6,
-              value: 40,     # Sensor type is 40 for voltage input, Pressure Sensor
+              value: 40,     # Sensor type is 40 for voltage input
             },
             {
               subname: 8,
-              value: 40,     # Sensor type is 40 for voltage input, Pressure Sensor 2
+              value: 40,     # Sensor type is 40 for voltage input
             },
             {
               subname: 9,
-              value: 40,     # Sensor type is 40 for voltage input, Pressure Sensor 3
+              value: 40,     # Sensor type is 40 for voltage input
             },
             {
               subname: 10,
-              value: 40,     # Sensor type is 40 for voltage input, Pressure Sensor 4
+              value: 40,     # Sensor type is 40 for voltage input
             },
             {
               subname: 11,
-              value: 60,     # Sensor type is 60 for frequency input, YF-S201 Flow sensor
+              value: 60,     # Sensor type is 60 for frequency input
             },
+            {
+              subname: 12,
+              value: 40,     # Sensor type is 40 for voltage input
+            }
           ]
         },
+        #TPDO 1 
         {
-          name: "Input Range",
-          subindicies:             
-          [
-            {
-              subname: 7,
-              value: 1,    #  1 = 10 Hz–1 kHz  
-            },
-          ]
-        },
-        {
-          # 0: Output Disabled, 10: Output Voltage, 20: Output Current, 40: Output PWM, 1000: Output Digital, 1020: Output Digital Hotshot
-          name: "AO_Output_type",  # Analog Output Pin Type selections. 
-          subindicies: 
-          [
-            {
-              subname: "Output Type Proportional Output 1",  # AO1 Output = Positive Contactor (K01). 
-              value: 1000, # Digital Output (Hotshot) 
-            },
-            {
-              subname: "Output Type Proportional Output 2",  # AO2 Output = Negative Contactor (K02).
-              value: 1000, # Digital Output (Hotshot) 
-            },
-            {
-              subname: "Output Type Proportional Output 3",  # AO3 Output = Precharge Contactor (K03).
-              value: 1000, # Digital Output (Hotshot) 
-            },
-            {
-              subname: "Output Type Proportional Output 4",  # AO4 Output.
-              value: 1000, # Digital Output 
-            },
-            {
-              subname: "Output Type Proportional Output 5",  # AO5 Output.
-              value: 1000, # Digital Output 
-            },
-            {
-              subname: "Output Type Proportional Output 6",  # AO6 Output.
-              value: 1000, # Digital Output 
-            },
-            {
-              subname: "Output Type Proportional Output 7",  # AO7 Output = 12v Relay Inverter 1.
-              value: 1000, # Digital Output 
-            },
-            {
-              subname: "Output Type Proportional Output 8",  # AO8 Output = 12v Relay Inverter 2.
-              value: 1000, # Digital Output 
-            },
-            {
-              subname: "Output Type Proportional Output 9",  # AO9 Output.
-              value: 1000, # Digital Output 
-            },
-            {
-              subname: "Output Type Proportional Output 10",  # AO10 Output.
-              value: 1000, # Digital Output 
-            },
-            {
-              subname: "Output Type Proportional Output 11",  # AO11 Output.
-              value: 1000, # Digital Output 
-            },
-            {
-              subname: "Output Type Proportional Output 12",  # AO12 Output.
-              value: 1000, # Digital Output 
-            },
-          ]
-        },
-        #{
-        #  name: "DO Hotshot Current 1 Output Line",
-        #  subindicies:
-        #  [
-        #    {
-        #      subname: 1,
-        #      value: 30000, # 2000 = 2000mA
-        #    },
-        #    {
-        #      subname: 2,
-        #      value: 30000, # 2000 = 2000mA
-        #    },
-        #    {
-        #      subname: 3,
-        #      value: 30000, # 2000 = 2000mA
-        #    }
-        #  ]
-        #},
-        #{
-        #  name: "DO Hold Current 1 Output Line",
-        #  subindicies:
-        #  [
-        #    {
-        #      subname: 1,
-        #      value: 100, # 100 = 100mA
-        #    },
-        #    {
-        #      subname: 2,
-        #      value: 100, # 100 = 100mA
-        #    },
-        #    {
-        #      subname: 3,
-        #      value: 100, # 100 = 100mA
-        #    }
-        #  ]
-        #},
-        #{
-        #  name: "DO Hotshot Time 1 Output Line",
-        #  subindicies:  
-        #  [
-        #    {
-        #      subname: 1,
-        #      value: 10000, # 1000 = 1000ms
-        #    },
-        #    {
-        #      subname: 2,
-        #      value: 10000, # 1000 = 1000ms
-        #    },
-        #    {
-        #      subname: 3,
-        #      value: 10000, # 1000 = 1000ms
-        #    }
-        #  ]
-        #},
-        # Changing FV and PV scaling factors (in an attempt to fix the resistance range)
-        {
-          name: "Input Scaling 1 FV",
-          subindicies:
-          [
-            {
-              subname: 1,
-              value: 10,
-            },
-          ]
-        },
-        {
-          name: "Input Scaling 2 FV",
-          subindicies:
-          [
-            {
-              subname: 1,
-              value: 20000,
-            },
-          ]
-        },
-        {
-          name: "Input Scaling 1 PV",
-          subindicies:
-          [
-            {
-              subname: 1,
-              value: 1,
-            },
-          ]
-        },
-        {
-          name: "Input Scaling 2 PV",
-          subindicies:
-          [
-            {
-              subname: 1,
-              value: 2000,
-            },
-          ]
-        },
-        {
-          name: "Input Span End (Error Max)",
-          subindicies:
-          [
-            {
-              subname: 1,
-              value: 25000,
-            },
-          ]
-        },
-        #TPDO 1 (Temperature sensors 1 to 4)
-        {
-          name: "Transmit PDO Communication Parameter 0", # 0x180 + Node ID = 0x7F
+          name: "Transmit PDO Communication Parameter 0", # 0x1800      0x180 + Node ID = 0x7F
           subindicies: 
             [
               {
@@ -415,9 +189,9 @@
               }
             ]     
         },
-        # TPDO2 communication parameters
+        # TPDO2 communication parameters 
         {
-          name: "Transmit PDO Communication Parameter 1", # 0x180 + Node ID = 0x7F
+          name: "Transmit PDO Communication Parameter 1", # 0x1801    0x180 + Node ID = 0x7F
           subindicies: 
             [
               {
@@ -440,7 +214,7 @@
         },
         {
           # TPDO2 mapping parameters
-          name: "Transmit PDO Mapping Parameter 1", # 0x1A01 Pressure sensor analog input from 1 to 4
+          name: "Transmit PDO Mapping Parameter 1", # 0x1A01 
           # Sensor 1 = input 6, Sensor 2 = input 8, Sensor 3 = input 9, Sensor 4 = input 10
           subindicies: 
             [
@@ -449,20 +223,20 @@
                 value: 4,
               },
               {
-                subname: 1, # Pressure sensor analog input
-                value: 0x71000610, # 0x71000610 is the object index 0x7100 with subindex 0x06, 0x10 = get 16 bits of this obj dict value of the first mapped object to place in TPDO CAN message. Analog input 6 FV
+                subname: 1, # Analog input 5
+                value: 0x71000510, # 0x71000510 is the object index 0x7100 with subindex 0x05, 0x10 = get 16 bits of this obj dict value. Analog input 5 FV
               },
               {
-                subname: 2, # Pressure sensor analog input
-                value: 0x71000810, # 0x71000810 is the object index 0x7100 with subindex 0x08, 0x10 = get 16 bits of this obj dict value of the first mapped object to place in TPDO CAN message. Analog input 8 FV
+                subname: 2, # Analog input 6
+                value: 0x71000610, # 0x71000610 is the object index 0x7100 with subindex 0x06, 0x10 = get 16 bits of this obj dict value. Analog input 6 FV
               },
               {
-                subname: 3, # Pressure sensor analog input
-                value: 0x71000910, # 0x71000910 is the object index 0x7100 with subindex 0x09, 0x10 = get 16 bits of this obj dict value of the first mapped object to place in TPDO CAN message. Analog input 9 FV
+                subname: 3, # Analog input 7
+                value: 0x71000710, # 0x71000710 is the object index 0x7100 with subindex 0x07, 0x10 = get 16 bits of this obj dict value. Analog input 7 FV
               },
               {
-                subname: 4, # Pressure sensor analog input
-                value: 0x71000A10, # 0x71000A10 is the object index 0x7100 with subindex 0x0A, 0x10 = get 16 bits of this obj dict value of the first mapped object to place in TPDO CAN message. Analog input 10 FV
+                subname: 4, # Analog input 8
+                value: 0x71000810, # 0x71000810 is the object index 0x7100 with subindex 0x08, 0x10 = get 16 bits of this obj dict value. Analog input 8 FV
               },
             ]     
         },
@@ -470,7 +244,7 @@
 
         # TPDO3 communication parameters
         {
-          name: "Transmit PDO Communication Parameter 2", # 0x380 + Node ID = 0x7F
+          name: "Transmit PDO Communication Parameter 2", #  0x1802     0x380 + Node ID = 0x7F
           subindicies: 
             [
               {
@@ -500,59 +274,21 @@
                 subname: "Number of entries", 
                 value: 4,
               },
-              # NOTE: only digital input 12 will be used (system_enable_button)
               {
-                subname: 1,        # Can use the subindex name or the index value of the subindex in the Object Dict to define the subindex value.
-                value: 0x60000108, # 0x60000108 is the object index 0x6000 with subindex 0x01, 0x08 = get 8 bits of this obj dict value of the first mapped object to place in TPDO CAN message. This corresponds to DI Read State 8 Input Lines (D1 to D8)
+                subname: 1, # Analog input 9
+                value: 0x71000910, # 0x71000910 is the object index 0x7100 with subindex 0x09, 0x10 = get 16 bits of this obj dict value. Analog input 9 FV
               },
               {
-                subname: 2,
-                value: 0x60000208, # 0x60000208 is the object index 0x6000 with subindex 0x02, 0x08 = get 8 bits of this obj dict value of the first mapped object to place in TPDO CAN message. This corresponds to DI Read State 8 Input Lines (D9 to D16)
+                subname: 2, # Analog input 10
+                value: 0x71000A10, # 0x71000A10 is the object index 0x7100 with subindex 0x0A, 0x10 = get 16 bits of this obj dict value. Analog input 10 FV
               },
               {
-                subname: 3,        # obj 7100h = AI Input Field Value (Flow sensor, input 11)
-                value: 0x71000B10, # 0x71000B10 is the object index 0x7100 with subindex 0x0B, 0x10 = get 16 bits of this obj dict value of the first mapped object to place in TPDO CAN message. This corresponds to AI Read State 8 Input Lines
+                subname: 3, # Analog input 11
+                value: 0x71000B10, # 0x71000B10 is the object index 0x7100 with subindex 0x0B, 0x10 = get 16 bits of this obj dict value. Analog input 11 FV
               },
               {
-                subname: 4,
-                value: 0x71000510, # 0x71000510 is the object index 0x7100 with subindex 0x05, 0x10 = get 16 bits of this obj dict value of the first mapped object to place in TPDO CAN message. Analog input 5 FV
-              },
-            ]     
-        },
-        {
-          # RPDO1
-          name: "Receive PDO Communication Parameter 0", # Default ID 0x500 + Node ID = 0x7F
-          subindicies: 
-            [
-              {
-                subname: "COB ID", 
-                value: 0x4000027F,    # 04000000h +  in the COB ID indicates that there is no RTR allowed on the PDO. 80000000h in the COB ID indicates that the PDO does not exist (destroyed).
-              },
-              {
-                subname: "Transmission Type", 
-                value: 0xFF, # transmission type 255 means, the application event is Event Driven (wait for the rpdo to be received).
-              },
-              {
-                subname: "Event Timer", 
-                value: 0, # The rate to at which the rpdo message is expected to be received at (milliseconds) otherwise an error occurs. Set to zero to disable this timeout feature.
-              },
-            ]     
-        },
-        {
-          name: "Receive PDO Mapping Parameter 0", 
-          subindicies: 
-            [
-              {
-                subname: "Number of entries", 
-                value: 2,
-              },
-              {
-                subname: 1,        # First mapped object to be recieved in the RPDO1 CAN message. 
-                value: 0x62000108, # 0x62000108 = Digital Output states for Outputs 1 to 8. Bit 0 is the ON/OFF commanded state for output 1 if Output 1 is set as a digital output type.
-              },
-              {
-                subname: 2,        # Second mapped object to be recieved in the RPDO1 CAN message. 
-                value: 0x62000208, # 0x62000208 = Digital Output states for Outputs 9 to 16. Bit 0 is the ON/OFF commanded state for output 9 (which is always a Digital output type).
+                subname: 4, # Analog input 12
+                value: 0x71000C10, # 0x71000C10 is the object index 0x7100 with subindex 0x0C, 0x10 = get 16 bits of this obj dict value. Analog input 12 FV
               },
             ]     
         },

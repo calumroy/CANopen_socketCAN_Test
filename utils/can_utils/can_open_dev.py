@@ -16,7 +16,7 @@ import os
 import argparse
 import yaml
 from threading import Lock
-from utils.database_logger.database_logger import DatabaseLogger # Required if we want to log CAN sdo comms to the database.
+#from utils.database_logger.database_logger import DatabaseLogger # Required if we want to log CAN sdo comms to the database.
 
 from logging import getLogger
 
@@ -129,7 +129,7 @@ class CANOpenDevice:
         # Define a database to log all sdo CAN messages received from the device.
         self.database_logger = None
         if 'database_logger' in config:
-            self.database_logger = DatabaseLogger(config['database_logger'])
+            #self.database_logger = DatabaseLogger(config['database_logger'])
             self.database_logger.start()
 
         # Get the CAN DBC file defining.
