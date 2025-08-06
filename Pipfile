@@ -1,0 +1,37 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+cantools = "*"
+can = "*"
+pyaml = "*"
+transitions = "*"
+dataclasses = "*"
+ipdb = "*"
+graphviz = "*"
+waitress = "*"
+flask-cors = "*"
+chili = "*"
+influxdb-client = "*"
+black = "*"
+canopen = "*"
+flask = "*"
+flask-socketio = "*"
+pylint = "*"
+netifaces = "*"
+requests = "*"
+pandas = "*"
+pytest = "*"
+exceptiongroup = "*"
+pdoc = "==14.3.0"
+bitstruct = "*"
+sdnotify = "*"
+influxdb3-python = "*"
+numpy = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.12"
