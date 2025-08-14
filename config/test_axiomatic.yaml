@@ -139,6 +139,65 @@
             }
           ]
         },
+        {
+          name: "Input Range",  # 0x2100 Input Range
+          # For Voltage inputs (sensor type 40): 0 = 0-5V, 1 = 0-10V
+          # For Frequency inputs (sensor type 60): 0 = 0.8-100Hz, 1 = 10Hz-1kHz, 2 = 100Hz-10kHz
+          # Below sets all inputs to 0 (0-5V) except input 11 (frequency) set to 2 (100Hz-10kHz)
+          subindicies:
+          [
+            { 
+              subname: 1,  
+              value: 0,
+            },
+            { 
+              subname: 2,  
+              value: 0
+              ,
+            },
+            { 
+              subname: 3,  
+              value: 0 
+            },
+            { 
+              subname: 4,  
+              value: 0 
+            },
+            { 
+              subname: 5,  
+              value: 0 
+            },
+            { 
+              subname: 6,  
+              value: 0 
+            },
+            { 
+              subname: 7,  
+              value: 0 
+            },
+            { 
+              subname: 8,  
+              value: 0 
+            },
+            { 
+              subname: 9,  
+              value: 0 
+            },
+            { 
+              subname: 10, 
+              value: 0 
+            },
+            { 
+              subname: 11, 
+              value: 2 
+            },
+            { 
+              subname: 12, 
+              value: 0 
+            }
+          ]
+        },
+        
         #TPDO 1 
         {
           name: "Transmit PDO Communication Parameter 0", # 0x1800      0x180 + Node ID = 0x7F
